@@ -321,22 +321,22 @@ def sauvegarder_historique_generation(donnees: dict, nom_fichier: str, rapport: 
 # === CONFIGURATION OPENAI ===
 
 def configurer_openai():
-    """Configure l'API OpenAI avec la clé depuis les secrets Streamlit"""
     try:
+        import openai
+        st.write(f"Version OpenAI: {openai.__version__}")
+        
         from openai import OpenAI
+        api_key = st.secrets.get("OPENAI_API_KEY")
         
-        api_key = st.secrets.get("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
-        if not api_key:
-            st.error("⚠️ Clé API OpenAI manquante. Configurez OPENAI_API_KEY dans les secrets.")
-            return None
-        
-        # Créer et retourner le client OpenAI
+        # Essai minimal
         client = OpenAI(api_key=api_key)
         return client
+        
     except Exception as e:
-        st.error(f"Erreur de configuration OpenAI : {str(e)}")
+        st.write(f"Erreur détaillée: {str(e)}")
+        st.write(f"Type d'erreur: {type(e)}")
         return None
-
+    
 # === LECTURE DE FICHIERS ===
 
 def lire_fichier_pdf(fichier_pdf) -> str:
