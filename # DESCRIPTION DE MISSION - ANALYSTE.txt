@@ -1,0 +1,118 @@
+# DESCRIPTION DE MISSION - ANALYSTE CYBERSÉCURITÉ
+
+## CONTEXTE DE LA MISSION
+
+Notre client, un groupe bancaire européen de premier plan, cherche à renforcer son équipe de cybersécurité dans le cadre de la mise en conformité avec les nouvelles réglementations DORA (Digital Operational Resilience Act) et NIS2. L'organisation gère des infrastructures critiques et traite quotidiennement des millions de transactions financières sensibles.
+
+## POSTE
+
+**Analyste Cybersécurité Senior**  
+**Durée :** 12 mois (renouvelable)  
+**Localisation :** Paris La Défense  
+**Mode :** Hybride (3 jours sur site / 2 jours télétravail)
+
+## MISSION PRINCIPALE
+
+L'analyste cybersécurité aura pour mission de renforcer la posture de sécurité du groupe en analysant les menaces, en évaluant les vulnérabilités et en proposant des mesures de protection adaptées. Il participera activement à la mise en œuvre du programme de conformité réglementaire et à l'amélioration continue des processus de sécurité.
+
+## RESPONSABILITÉS CLÉS
+
+### Analyse et Évaluation des Risques
+- Effectuer des analyses de vulnérabilités sur l'infrastructure réseau et les applications métier
+- Réaliser des évaluations de risques cybersécurité selon la méthodologie EBIOS Risk Manager
+- Analyser les incidents de sécurité et produire des rapports d'investigation détaillés
+- Surveiller et analyser les alertes remontées par les outils de détection (SIEM, EDR, SOAR)
+
+### Conformité Réglementaire
+- Participer à la mise en conformité DORA et assurer le suivi des exigences NIS2
+- Contribuer à l'implémentation des contrôles ISO 27001 et des recommandations ANSSI
+- Rédiger et maintenir les procédures de sécurité en conformité avec PCI DSS
+- Préparer les audits de conformité et accompagner les auditeurs externes
+
+### Veille et Intelligence des Menaces
+- Assurer une veille technologique et réglementaire sur les menaces émergentes
+- Analyser les indicateurs de compromission (IOC) et alimenter la threat intelligence
+- Participer aux exercices de simulation d'incidents et tests de résistance
+- Collaborer avec les équipes SOC pour l'amélioration de la détection
+
+### Gestion de Projet et Communication
+- Piloter des projets de sécurisation d'infrastructures en mode Agile
+- Rédiger des rapports exécutifs pour le COMEX sur l'état de la sécurité
+- Animer des sessions de sensibilisation à la sécurité pour les équipes métier
+- Coordonner avec les équipes techniques pour la remédiation des vulnérabilités
+
+## COMPÉTENCES TECHNIQUES REQUISES
+
+### Outils et Technologies
+- Maîtrise des outils de scan de vulnérabilités : Nessus, Qualys, OpenVAS
+- Expérience avec les SIEM : Splunk, QRadar, ArcSight ou solutions équivalentes
+- Connaissance des outils d'analyse réseau : Wireshark, Nmap, TCPdump
+- Pratique des plateformes de test d'intrusion : Kali Linux, Metasploit, Burp Suite
+- Expérience avec les solutions EDR/XDR : CrowdStrike, SentinelOne, Microsoft Defender
+
+### Normes et Réglementations
+- Solide connaissance d'ISO 27001/27002 et des frameworks NIST
+- Expérience pratique avec DORA, NIS2, GDPR dans un contexte bancaire
+- Maîtrise des référentiels ANSSI et des guides de l'ACPR
+- Connaissance de PCI DSS et des standards de sécurité financière
+
+### Compétences Réseaux et Systèmes
+- Expertise des protocoles réseau TCP/IP, DNS, DHCP, VPN
+- Maîtrise des architectures réseau : VLAN, routage, commutation, pare-feu
+- Administration des systèmes Windows Server et Linux (Ubuntu, RedHat)
+- Connaissance d'Active Directory, GPO et des services d'annuaire
+
+### Langages et Scripting
+- Scripting avancé en PowerShell pour l'automatisation sécurité
+- Programmation en Python pour l'analyse de données et l'automatisation
+- Maîtrise de SQL pour l'interrogation des bases de données de sécurité
+- Notions en Bash pour l'administration des systèmes Linux
+
+## COMPÉTENCES FONCTIONNELLES
+
+### Gestion de Projet
+- Certification PMP, PRINCE2 ou équivalent appréciée
+- Expérience en gestion de projets cybersécurité dans un environnement Agile/Scrum
+- Capacité à coordonner des équipes techniques multidisciplinaires
+- Maîtrise des outils de gestion de projet : Jira, Confluence, MS Project
+
+### Communication et Reporting
+- Excellente capacité de rédaction de rapports techniques et exécutifs
+- Aisance dans la présentation orale devant des audiences techniques et dirigeantes
+- Aptitude à vulgariser les concepts techniques pour les métiers
+- Expérience dans l'animation d'ateliers de sensibilisation à la sécurité
+
+## PROFIL RECHERCHÉ
+
+### Formation et Certifications
+- Formation supérieure en informatique, cybersécurité ou télécommunications (Bac+5)
+- Certifications souhaitées : CISSP, CISA, CISM, CEH, GCIH ou équivalent
+- Certification ISO 27001 Lead Auditor serait un plus
+- Veille active sur les certifications cloud security (CCSP, AWS Security)
+
+### Expérience
+- Minimum 5 ans d'expérience en cybersécurité dans un environnement bancaire ou financier
+- Expérience confirmée en analyse de vulnérabilités et gestion d'incidents
+- Pratique des audits de sécurité et de la mise en conformité réglementaire
+- Expérience en gestion de projets de sécurisation d'infrastructures critiques
+
+### Compétences Comportementales
+- Rigueur et méthode dans l'approche analytique des problématiques sécurité
+- Capacité d'adaptation aux évolutions technologiques et réglementaires rapides
+- Esprit de synthèse et sens du détail pour l'investigation d'incidents
+- Excellent relationnel pour collaborer avec des équipes techniques et métier
+
+## CONDITIONS DE LA MISSION
+
+**Rémunération :** 650-750€/jour selon expérience  
+**Démarrage :** Dès que possible  
+**Équipe :** Intégration dans une équipe sécurité de 12 personnes  
+**Évolution :** Possibilité d'évolution vers un rôle de lead analyste après 6 mois  
+
+## ENVIRONNEMENT TECHNIQUE
+
+- Infrastructure hybride on-premise/cloud (AWS, Azure)
+- Parc de 15 000 postes utilisateurs
+- 200+ applications métier critiques
+- Architecture réseau complexe multi-sites avec interconnexions sécurisées
+- Environnement réglementé soumis aux contrôles ACPR et BCE
