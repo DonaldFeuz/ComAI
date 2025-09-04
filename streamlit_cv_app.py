@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import io
 from cv_functions import *
 
 # Configuration de la page
@@ -15,9 +14,16 @@ def main():
     st.markdown("*Optimisation intelligente du dossier de compétences selon la mission*")
     st.markdown("---")
     
+    # Vérification de la présence du template
+    template_path = "template_clinkast.docx"
+    if not os.path.exists(template_path):
+        st.error(f"❌ Template manquant : {template_path}")
+        st.info("Veuillez placer le fichier 'template_clinkast.docx' à la racine du projet")
+        return
+    
     st.subheader("📁 Documents d'entrée")
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     
     with col1:
         st.markdown("**📋 Description de la mission**")
@@ -65,28 +71,6 @@ def main():
                     with st.expander("Aperçu du contenu", expanded=False):
                         st.text(cv_text[:500] + "..." if len(cv_text) > 500 else cv_text)
     
-    with col3:
-        st.markdown("**📄 Template Word**")
-        template_file = st.file_uploader(
-            "Chargez votre template Word",
-            type=['docx'],
-            help="Template Word avec les placeholders Clinkast"
-        )
-        
-        if template_file:
-            st.success("✅ Template chargé")
-            with st.expander("Placeholders supportés", expanded=False):
-                st.markdown("""
-                - `{{nom_consultant}}`
-                - `{{titre_du_poste}}`
-                - `{{points_forts}}`
-                - `{{niveaux_intervention}}`
-                - `{{tableau_formation}}`
-                - `{{tableau_connaissances}}`
-                - `{{tableau_hobbies}}`
-                - `{{tableau_experiences}}`
-                """)
-    
     st.subheader("⚙️ Configuration")
     
     col_config1, col_config2 = st.columns([2, 1])
@@ -108,17 +92,24 @@ def main():
     
     with col_config2:
         st.info("""
-        **Analyse automatique :**
-        - Détection du domaine
-        - Optimisation des compétences  
-        - Reformulation intelligente
-        - Priorisation des expériences
+        **Template utilisé:**
+        `template_clinkast.docx`
+        
+        **Placeholders supportés:**
+        - `{{nom_consultant}}`
+        - `{{titre_du_poste}}`
+        - `{{points_forts}}`
+        - `{{niveaux_intervention}}`
+        - `{{tableau_formation}}`
+        - `{{tableau_connaissances}}`
+        - `{{tableau_hobbies}}`
+        - `{{tableau_experiences}}`
         """)
     
     # Bouton de génération
-    if st.button("🚀 Analyser et Générer", type="primary", disabled=not all([mission_file, cv_file, template_file])):
+    if st.button("🚀 Analyser et Générer", type="primary", disabled=not all([mission_file, cv_file])):
         
-        if not all([mission_file, cv_file, template_file]):
+        if not all([mission_file, cv_file]):
             st.warning("⚠️ Veuillez charger tous les documents requis")
             return
         
@@ -167,11 +158,6 @@ def main():
             st.error("❌ Erreur lors de l'analyse IA")
             return
         
-        # Vérification du format des données
-        if not isinstance(donnees_optimisees, dict):
-            st.error("❌ Format de données invalide reçu de l'IA")
-            return
-        
         # Étape 4: Génération du rapport et affichage des résultats
         rapport = generer_rapport_optimisation(cv_content, donnees_optimisees, mission_content)
         
@@ -217,8 +203,9 @@ def main():
         # Étape 5: Génération du CV
         with st.spinner("📝 Génération du CV optimisé..."):
             try:
-                # Utiliser le template uploadé par l'utilisateur
-                doc = generer_cv_depuis_template_avec_entete_preserve(template_file, donnees_optimisees)
+                # Utiliser le template fixe
+                with open(template_path, 'rb') as template_file:
+                    doc = generer_cv_depuis_template_avec_entete_preserve(template_file, donnees_optimisees)
                 
                 if doc:
                     # Sauvegarder en mémoire
@@ -261,13 +248,9 @@ def main():
                             "Catégories de compétences", 
                             len(donnees_optimisees.get('connaissances', {}))
                         )
-                else:
-                    st.error("❌ Erreur lors de la génération du document")
                 
             except Exception as e:
                 st.error(f"❌ Erreur lors de la génération : {str(e)}")
-                import traceback
-                st.error(f"Détails: {traceback.format_exc()}")
 
 # Guide d'utilisation
 def afficher_guide():
@@ -281,45 +264,24 @@ def afficher_guide():
        - Document contenant les détails de la mission/poste
        - L'IA analysera les compétences requises
     
-    2. **👤 Chargez le dossier de compétences** actuel (PDF/Word)  
+    2. **👤 Chargez le dossier de compétences** actuel (PDF/Word)
        - CV ou dossier existant à adapter
        - Sera optimisé selon les besoins de la mission
     
-    3. **📄 Chargez votre template Word** (.docx)
-       - Template avec les placeholders Clinkast
-       - Évite les problèmes de corruption de fichier
-    
-    4. **🤖 L'IA analyse et optimise automatiquement :**
+    3. **🤖 L'IA analyse et optimise automatiquement :**
        - Détection du domaine d'activité
        - Adaptation des compétences pertinentes
        - Reformulation intelligente des expériences
        - Priorisation des points forts
-       - Exclusion des éléments non pertinents
     
-    5. **📥 Téléchargez** le CV optimisé au format Word
+    4. **📥 Téléchargez** le CV optimisé au format Word
     
     **Avantages :**
     - ✅ Adaptation automatique à chaque mission
-    - ✅ Optimisation des compétences pertinentes  
+    - ✅ Optimisation des compétences pertinentes
     - ✅ Reformulation professionnelle
-    - ✅ Flexibilité du template utilisateur
+    - ✅ Template standardisé Clinkast
     - ✅ Score d'adéquation calculé
-    - ✅ Support des profils multi-domaines
-    - ✅ Maximisation des réalisations pertinentes
-    
-    **Domaines spécialisés supportés :**
-    - Développement & Programmation
-    - DevOps & Infrastructure  
-    - Cybersécurité
-    - Intelligence Artificielle & Data
-    - Business Intelligence & Analytics
-    - Architecture & Systèmes
-    - Marketing Digital
-    - Finance
-    - Ressources Humaines
-    - Logistique & Supply Chain
-    - Consulting & Stratégie
-    - Et plus...
     """)
 
 if __name__ == "__main__":
